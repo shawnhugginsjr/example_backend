@@ -1,4 +1,7 @@
 class Recipe
+    # @@inprogress_recipe is used to progressively build a Recipe object when
+    # using Recipe#describe. @@inprogress_recipe holds data between Ruby blocks
+    # calls.
     @@inprogress_recipe = nil
     @@added_recipes = {}
 
@@ -15,6 +18,8 @@ class Recipe
             @@added_recipes.clear
         end
 
+        # Describe is used to dynamically build a Recipe object. Its usage can be
+        # seen in recipe_spec.rb inside the Recipe description.
         def describe
             yield
         end
@@ -49,6 +54,8 @@ class Recipe
     end
 end
 
+# The following fuctions are used to dynamically build a Recipe object.
+# Their usage can be seen in recipe_spec.rb inside the Recipe description.
 
 def recipe_method
     yield
