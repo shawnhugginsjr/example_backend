@@ -46,12 +46,9 @@ class Recipe
             @@added_recipes[new_recipe.name] = new_recipe
             true
         end
-
-        def recipes
-            @@recipes
-        end
     end
 end
+
 
 def recipe_method
     yield
