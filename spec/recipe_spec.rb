@@ -122,8 +122,7 @@ describe Recipe do
         expect(result).to eq(true)
       end
 
-      it 'does not add the invalid Recipe' do
-        result = Recipe.add_recipe(valid_recipe)
+      it 'does add the valid Recipe' do
         expect(Recipe.for(valid_recipe.name)).not_to eq(nil)
       end
     end
