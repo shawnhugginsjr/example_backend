@@ -71,6 +71,6 @@ def recipe(recipe_name)
     Recipe.inprogress_recipe = inprogress_recipe
     yield
     new_recipe = Recipe.new(inprogress_recipe[:name],inprogress_recipe[:ingredients], inprogress_recipe[:method_steps] )
-    Recipe.add_recipe(new_recipe)
+    Recipe.add(new_recipe)
     Recipe.inprogress_recipe = nil
 end
