@@ -1,6 +1,6 @@
 class Recipe
     @@inprogress_recipe = nil
-    @@recipes = {}
+    @@added_recipes = {}
 
     def initialize(name, ingredients, method_steps)
         @name = name
@@ -12,7 +12,7 @@ class Recipe
 
     class << self
         def clear
-            @@recipes.clear
+            @@added_recipes.clear
         end
 
         def describe
@@ -25,7 +25,7 @@ class Recipe
                     'Expected recipe_name to be a string'
                   )
             end
-            recipes[recipe_name]
+            @@added_recipes[recipe_name]
         end
 
         def valid?(recipe)
@@ -43,7 +43,7 @@ class Recipe
 
         def add(new_recipe)
             return false unless Recipe.valid?(new_recipe)
-            @@recipes[new_recipe.name] = new_recipe
+            @@added_recipes[new_recipe.name] = new_recipe
             true
         end
 
