@@ -113,16 +113,17 @@ describe Recipe do
     end
   end
 
-  describe '#add_recipe' do
+  describe '#add' do
     context 'given a valid Recipe' do
       let(:valid_recipe) {Recipe.new('soap stew',['soap', 'warm water'],['place stew in warm water'])}
 
       it 'returns true for valid Recipes' do
-        result = Recipe.add_recipe(valid_recipe)
+        result = Recipe.add(valid_recipe)
         expect(result).to eq(true)
       end
 
       it 'does add the valid Recipe' do
+        result = Recipe.add(valid_recipe)
         expect(Recipe.for(valid_recipe.name)).not_to eq(nil)
       end
     end
@@ -131,12 +132,12 @@ describe Recipe do
       let(:invalid_recipe) {Recipe.new('invalid',[],[])}
 
       it 'returns false for invalid Recipes' do
-        result = Recipe.add_recipe(invalid_recipe)
+        result = Recipe.add(invalid_recipe)
         expect(result).to eq(false)
       end
 
       it 'does not add the invalid Recipe' do
-        result = Recipe.add_recipe(invalid_recipe)
+        result = Recipe.add(invalid_recipe)
         expect(Recipe.for(invalid_recipe.name)).to eq(nil)
       end
     end

@@ -41,9 +41,9 @@ class Recipe
             @@inprogress_recipe = recipe
         end
 
-        def add_recipe(recipe)
-            return false unless Recipe.valid?(recipe)
-            @@recipes[recipe.name] = recipe
+        def add(new_recipe)
+            return false unless Recipe.valid?(new_recipe)
+            @@recipes[new_recipe.name] = new_recipe
             true
         end
 
